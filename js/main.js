@@ -73,7 +73,7 @@ function hacerCards(arrayConPrendas) {
     let {imagen, nombre, precio,id} = prenda
 
     cards.innerHTML += `<article><div class="card p-3" style="width: 18rem;">
-    <img src="img/${imagen}" class="card-img-top" alt="...">
+    <img src="img/${imagen}" class="card-img-top" alt="imagen">
     <div class="card-body">
       <h5 class="">${nombre.toUpperCase()}</h5>
       <p class="">$${precio}</p>
@@ -152,7 +152,7 @@ function agregarCarrito(prenda){
       <div class="row">
      <div class="col">
      <h4 class="">${nombre}</h4>
-     <img src="img/${imagen}" alt="..." style="width: 4rem">
+     <img src="img/${imagen}" alt="imagen" style="width: 4rem">
       </div>
       <div class="col">
       <p class="">Cantidad: ${cantidad}</p>
