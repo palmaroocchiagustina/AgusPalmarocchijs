@@ -73,7 +73,7 @@ function hacerCards(arrayConPrendas) {
     let {imagen, nombre, precio,id} = prenda
 
     cards.innerHTML += `<article><div class="card p-3" style="width: 18rem;">
-    <img src="img/${imagen}" class="card-img-top" alt="...">
+    <img src="/img/${imagen}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="">${nombre.toUpperCase()}</h5>
       <p class="">$${precio}</p>
