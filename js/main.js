@@ -14,7 +14,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 //stock
 
-const prendas = [
+/*const prendas = [
 
   {imagen : "remera-negra.jpg", nombre: "remera",precio: 2000, id:1},
   {imagen : "top rayado.jpg",nombre : "top rayas",precio: 3000, id:2},
@@ -26,13 +26,12 @@ const prendas = [
 ]
 
 //FETCH
-/*
-const prendas = [];
+/*const prendas = [];
 
 fetch("./js/data.json")
 .then(res=>res.json())
 .then(data=>{
-  data.forEach(el=>{
+  data.forEach(el=>{*/
 
 // async await
 const prendas = [];
@@ -52,7 +51,6 @@ hacerCards(data);
 }
 respuesta();
 
-*/
 //pRODUCTOS (constructor)
 
 function Productos(imagen, nombre, precio, id) {
