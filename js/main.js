@@ -14,7 +14,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 //stock
 
-/*const prendas = [
+const prendas = [
 
   {imagen : "remera-negra.jpg", nombre: "remera",precio: 2000, id:1},
   {imagen : "top rayado.jpg",nombre : "top rayas",precio: 3000, id:2},
@@ -23,7 +23,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   {imagen : "zapatillas cara.jpg",nombre : "zapatillas",precio: 20000, id:5},
   {imagen : "blazer rosa.jpg",nombre : "blazer de lino",precio: 20000, id: 6},
 
-]*/
+]
 
 //FETCH
 /*
@@ -33,12 +33,12 @@ fetch("./js/data.json")
 .then(res=>res.json())
 .then(data=>{
   data.forEach(el=>{
-*/
+
 // async await
 const prendas = [];
 const respuesta = async ()=>{
 
-const response = await fetch ("./js/data.json");
+const response = await fetch ("/js/data.json");
 
 const data = await response.json();
 data.forEach(el=>{
@@ -52,7 +52,7 @@ hacerCards(data);
 }
 respuesta();
 
-
+*/
 //pRODUCTOS (constructor)
 
 function Productos(imagen, nombre, precio, id) {
