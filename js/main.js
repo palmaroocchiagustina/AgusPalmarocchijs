@@ -38,7 +38,7 @@ fetch("./js/data.json")
 const prendas = [];
 const respuesta = async ()=>{
 
-const response = await fetch ("/js/data.json");
+const response = await fetch ("./js/data.json");
 
 const data = await response.json();
 data.forEach(el=>{
