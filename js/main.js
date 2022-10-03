@@ -152,7 +152,7 @@ function agregarCarrito(prenda){
       <div class="row">
      <div class="col">
      <h4 class="">${nombre}</h4>
-     <img src="/img/${imagen}" alt="..." style="width: 4rem">
+     <img src="img/${imagen}" alt="..." style="width: 4rem">
       </div>
       <div class="col">
       <p class="">Cantidad: ${cantidad}</p>
