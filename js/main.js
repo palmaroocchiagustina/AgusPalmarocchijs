@@ -78,7 +78,7 @@ function hacerCards(arrayConPrendas) {
       <button class="carrito btn btn-dark container" id="btn-agregar${id}">Comprar</button>
 
     </div></article> 
-    `
+    `;
     
   });
   botonComprar(arrayConPrendas); 
@@ -163,7 +163,7 @@ function agregarCarrito(prenda){
       <button class="carrito btn btn-secondary" id="btn-borrar${id}">X</button>
       </div>
       </div>
-      </div>`
+      </div>`;
         
     })
 
@@ -251,7 +251,7 @@ function totalCarrito() {
     total.innerHTML = `<div>
     <h5>El total de su compra es $${totalCarrito}</h5> 
     </div> 
-    `
+    `;
    
     localStorage.setItem('totalCarrito', JSON.stringify(totalCarrito));
 }
@@ -275,8 +275,8 @@ function pagoEfectivo() {
     total.innerHTML = `<div>
     <h5>El total de su compra es $${totalEfectivo}</h5> 
     </div> 
-    `
-    localStorage.setItem('totalEfectivo', JSON.stringify(totalEfectivo))
+    `;
+    localStorage.setItem('totalEfectivo', JSON.stringify(totalEfectivo));
 
   })
 }
@@ -296,9 +296,9 @@ function pagoCredito() {
     total.innerHTML = `<div>
     <h5>El total de su compra es $${totalCredito}</h5> 
     </div> 
-    `
+    `;
 
-    localStorage.setItem('totalCredito', JSON.stringify(totalCredito))
+    localStorage.setItem('totalCredito', JSON.stringify(totalCredito));
 
   
   })
@@ -348,7 +348,7 @@ function finalizarCompra() {
         title: 'Ingresa tu email, para continuar con tu compra ',
         input: 'email',
         inputLabel: 'Obtendrás mayor información sobre métodos de pago y envíos.',
-        inputPlaceholder: 'nombre@gmail.com'
+        inputPlaceholder: 'nombre@gmail.com',
       })
       
       if (email) {
