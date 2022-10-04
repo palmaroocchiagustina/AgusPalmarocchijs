@@ -276,7 +276,7 @@ function pagoEfectivo() {
     <h5>El total de su compra es $${totalEfectivo}</h5> 
     </div> 
     `;
-    localStorage.setItem('totalEfectivo', JSON.stringify(totalEfectivo));
+  //  localStorage.setItem('totalEfectivo', JSON.stringify(totalEfectivo));
 
   })
 }
@@ -298,7 +298,7 @@ function pagoCredito() {
     </div> 
     `;
 
-    localStorage.setItem('totalCredito', JSON.stringify(totalCredito));
+    //localStorage.setItem('totalCredito', JSON.stringify(totalCredito));
 
   
   })
