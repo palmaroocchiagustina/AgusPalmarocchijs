@@ -1,14 +1,12 @@
-//pre-entrega 2
+//Trabajo final
 
 //const
 const cards = document.querySelector("#tarjetas");
+const input = document.querySelector ("#ingreso");
 const carro = document.querySelector("#carrito");
 const total = document.querySelector("#totalCarritoDiv");
 const formasPago = document.querySelector("#formasPago");
 const card = document.querySelector(".card");
-
-
-
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
 
 
@@ -88,9 +86,6 @@ function hacerCards(arrayConPrendas) {
 
 /* FUNCIONALIDAD DEL FILTRO */
 
-const input = document.querySelector ("#ingreso");
-
-
 function escucharInput (){
   input.addEventListener("input",()=>{
     hacerCards(prendas.filter(el=>el.nombre.includes(input.value.toLowerCase()))); 
@@ -99,7 +94,7 @@ function escucharInput (){
 
 escucharInput();
 // ver si lo dejamos o no 
-const btnBuscar = document.querySelector("#btnBuscar");
+/*const btnBuscar = document.querySelector("#btnBuscar");
 function escucharBuscar (){
 btnBuscar.addEventListener("click",()=>{
  
@@ -107,7 +102,7 @@ btnBuscar.addEventListener("click",()=>{
 
   })
 }
-escucharBuscar();
+escucharBuscar();*/
 
 
 // funcion comprar
@@ -172,7 +167,7 @@ function agregarCarrito(prenda){
         
     })
 
-    localStorage.setItem("carro",JSON.stringify(carrito))
+    localStorage.setItem("carro",JSON.stringify(carrito));
     totalCarrito(); 
     borrarPrenda();
      borrarUno();
@@ -183,51 +178,6 @@ function agregarCarrito(prenda){
      finalizarCompra();
    
 
-}
-
-//TOTAL CARRITO 
-
-function totalCarrito() {
-  let totalCarrito = carrito.reduce((acc, el) => acc + el.precio * el.cantidad,0)
-    total.innerHTML = `<div>
-    <h5>El total de su compra es $${totalCarrito}</h5> 
-    </div> 
-    `
-    console.log(totalCarrito);
-   
-    localStorage.setItem('totalCarrito', JSON.stringify(totalCarrito))
-}
-
-//VACIAR CARRITO
-
-function vaciarCarrito() {
-  carrito.forEach(prenda=>{
-    document.querySelector("#btnVaciar").addEventListener("click",()=>{
-      Swal.fire({
-        title: 'Estas seguro ?',
-        text: "Estas por vaciar tu carrito !",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, vaciar !'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Eliminaste tu carrito !',
-            'Te esperamos de nuevo. Gracias',
-            'success',)
-          let indice = carrito.findIndex(element=>element.id===prenda.id);
-          carrito.splice(indice.cantidad,1);
-          mostrarCarrito();
-          
-        }
-      })
-      
-       
-    })
-   
-})
 }
 
 // BORRAR POR GRUPO DE PRENDAS
@@ -283,44 +233,31 @@ function sumarUno() {
       if(verificacion === true){
          
         carrito[indicePrenda].cantidad ++ ;
-       // console.log(carrito[indicePrenda].cantidad);
+
+        mostrarCarrito();
        
       
       }
-        mostrarCarrito();
        
     })
   })
   
 }
 
-//hacerCards(prendas); 
-mostrarCarrito();
+//TOTAL CARRITO 
 
-
-//FINALIZAR COMPRA
-
-function finalizarCompra() {
-     document.querySelector("#btnFinalizarCompra").addEventListener("click", async ()=>{
-      
-
-  const { value: email } = await Swal.fire({
-    title: 'Ingresa tu email, para continuar con tu compra ',
-    input: 'email',
-    inputLabel: 'Obtendrás mayor información sobre métodos de pago y envíos.',
-    inputPlaceholder: 'nombre@gmail.com'
-  })
-  
-  if (email) {
-    Swal.fire(`Revisá tu correo: ${email}`)
-  }
-
-  })
+function totalCarrito() {
+  let totalCarrito = carrito.reduce((acc, el) => acc + el.precio * el.cantidad,0);
+    total.innerHTML = `<div>
+    <h5>El total de su compra es $${totalCarrito}</h5> 
+    </div> 
+    `
    
+    localStorage.setItem('totalCarrito', JSON.stringify(totalCarrito));
 }
 
 
-// formas de pago 
+// Formas de pago 
 
 const pago = document.createElement("p");
 
@@ -329,7 +266,7 @@ pago.innerText = "Selecciona la forma de pago:";
 formasPago.append(pago);
 
 
-// pagar con efectivo 
+// Pagar con efectivo 
 
 function pagoEfectivo() {
   document.querySelector("#flexRadioDefault1").addEventListener("change",()=>{
@@ -344,7 +281,7 @@ function pagoEfectivo() {
   })
 }
 
-// pagar con credito 
+// Pagar con credito 
 
 function pagoCredito() {
   document.querySelector("#flexRadioDefault2").addEventListener("change",()=>{
@@ -365,5 +302,66 @@ function pagoCredito() {
 
   
   })
+}
+
+//VACIAR CARRITO
+
+function vaciarCarrito() {
+  carrito.forEach(prenda=>{
+    document.querySelector("#btnVaciar").addEventListener("click",()=>{
+      Swal.fire({
+        title: 'Estas seguro ?',
+        text: "Estas por vaciar tu carrito !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, vaciar !'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Eliminaste tu carrito !',
+            'Te esperamos de nuevo. Gracias',
+            'success',);
+          let indice = carrito.findIndex(element=>element.id===prenda.id);
+          carrito.splice(indice.cantidad,1);
+          mostrarCarrito();
+          
+        }
+      })
+      
+       
+    })
+   
+})
+}
+
+
+//FINALIZAR COMPRA
+
+function finalizarCompra() {
+  carrito.forEach(prenda=>{
+    document.querySelector("#btnFinalizarCompra").addEventListener("click", async ()=>{
+      
+
+      const { value: email } = await Swal.fire({
+        title: 'Ingresa tu email, para continuar con tu compra ',
+        input: 'email',
+        inputLabel: 'Obtendrás mayor información sobre métodos de pago y envíos.',
+        inputPlaceholder: 'nombre@gmail.com'
+      })
+      
+      if (email) {
+        Swal.fire(`Revisá tu correo: ${email}`);
+        let indice = carrito.findIndex(element=>element.id===prenda.id);
+        carrito.splice(indice.cantidad,1);
+        mostrarCarrito();
+        
+      }
+    
+  })
+    
+  })
+   
 }
 
