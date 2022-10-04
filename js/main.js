@@ -49,7 +49,7 @@ hacerCards(data);
 }
 respuesta();
 
-//pRODUCTOS (constructor)
+//Productos (constructor)
 
 function Productos(imagen, nombre, precio, id) {
     
@@ -62,7 +62,7 @@ function Productos(imagen, nombre, precio, id) {
 }
 
 
-//modificar el DOM
+//Modificar el DOM (mostrar las cards)
 
 
 function hacerCards(arrayConPrendas) {
@@ -93,19 +93,10 @@ function escucharInput (){
 }
 
 escucharInput();
-// ver si lo dejamos o no 
-/*const btnBuscar = document.querySelector("#btnBuscar");
-function escucharBuscar (){
-btnBuscar.addEventListener("click",()=>{
- 
-  hacerCards(prendas.filter(el=>el.nombre.includes(input.value.toLowerCase()))); 
 
-  })
-}
-escucharBuscar();*/
+// Funcion comprar
 
 
-// funcion comprar
 function botonComprar(arrayConPrendas) {
 
   arrayConPrendas.forEach(prenda => {
@@ -120,7 +111,7 @@ function botonComprar(arrayConPrendas) {
 }
 
 
-//agregar al carrito
+//Agregar al carrito
 
 function agregarCarrito(prenda){
 
@@ -180,7 +171,7 @@ function agregarCarrito(prenda){
 
 }
 
-// BORRAR POR GRUPO DE PRENDAS
+// Borrar por grupos de prendas
 
 function borrarPrenda(){
   carrito.forEach(prenda=>{
@@ -194,7 +185,7 @@ function borrarPrenda(){
 
 
 
-//funcion borrar de a una prenda
+//Borrar de a una prenda
 
 function borrarUno() {
 
@@ -221,7 +212,7 @@ function borrarUno() {
 }
 
 
-//funcion sumar cantidad
+//Sumar cantidad de prendas
 
 function sumarUno() {
 
@@ -244,7 +235,7 @@ function sumarUno() {
   
 }
 
-//TOTAL CARRITO 
+//Total carrito
 
 function totalCarrito() {
   let totalCarrito = carrito.reduce((acc, el) => acc + el.precio * el.cantidad,0);
@@ -276,8 +267,7 @@ function pagoEfectivo() {
     <h5>El total de su compra es $${totalEfectivo}</h5> 
     </div> 
     `;
-  //  localStorage.setItem('totalEfectivo', JSON.stringify(totalEfectivo));
-
+ 
   })
 }
 
@@ -298,13 +288,11 @@ function pagoCredito() {
     </div> 
     `;
 
-    //localStorage.setItem('totalCredito', JSON.stringify(totalCredito));
-
-  
+    localStorage.setItem('totalCredito', JSON.stringify(totalCredito));
   })
 }
 
-//VACIAR CARRITO
+//Vaciar carrito
 
 function vaciarCarrito() {
   carrito.forEach(prenda=>{
@@ -337,7 +325,7 @@ function vaciarCarrito() {
 }
 
 
-//FINALIZAR COMPRA
+//Finalizar compra
 
 function finalizarCompra() {
   carrito.forEach(prenda=>{
