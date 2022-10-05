@@ -12,26 +12,6 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 //stock
 
-/*const prendas = [
-
-  {imagen : "remera-negra.jpg", nombre: "remera",precio: 2000, id:1},
-  {imagen : "top rayado.jpg",nombre : "top rayas",precio: 3000, id:2},
-  {imagen : "jeans.jpg",nombre : "jeans",precio: 10000,id: 3},
-  {imagen : "campera de jeans.jpg",nombre : "campera de jeans",precio: 12000,id: 4},
-  {imagen : "zapatillas cara.jpg",nombre : "zapatillas",precio: 20000, id:5},
-  {imagen : "blazer rosa.jpg",nombre : "blazer de lino",precio: 20000, id: 6},
-
-]
-
-//FETCH
-/*const prendas = [];
-
-fetch("./js/data.json")
-.then(res=>res.json())
-.then(data=>{
-  data.forEach(el=>{*/
-
-// async await
 const prendas = [];
 const respuesta = async ()=>{
 
@@ -49,7 +29,7 @@ hacerCards(data);
 }
 respuesta();
 
-//Productos (constructor)
+//Productos
 
 function Productos(imagen, nombre, precio, id) {
     
@@ -171,7 +151,7 @@ function agregarCarrito(prenda){
 
 }
 
-// Borrar por grupos de prendas
+// Borrar por grupo de prendas
 
 function borrarPrenda(){
   carrito.forEach(prenda=>{
